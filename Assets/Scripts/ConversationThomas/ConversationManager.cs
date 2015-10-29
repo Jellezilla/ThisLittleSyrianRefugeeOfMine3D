@@ -8,6 +8,10 @@ public class ConversationManager : MonoBehaviour
 	private GameObject conversationPanel;
 	private Image panelImage;
 
+	private GameObject close;
+	private Image closeImage;
+	private Text closeText;
+
 	public List<GameObject> fields = new List<GameObject>();
 	List<string[]> conversations = new List<string[]>();
 	List<int[]> indexes = new List<int[]>();
@@ -15,6 +19,11 @@ public class ConversationManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		close = GameObject.Find ("Close");
+		closeImage = close.GetComponent<Image>();
+		Text[] closeArr = close.GetComponentsInChildren<Text>();
+		closeText = closeArr[0];
+
 		conversationPanel = GameObject.Find ("ConversationPanel");
 		panelImage = conversationPanel.GetComponent<Image>();
 
@@ -25,7 +34,7 @@ public class ConversationManager : MonoBehaviour
 		int[] text1Indexes = {0,2,3};
 
 		string[] text2 = {"aaa", "bbb", "ccc", "ddd", "eee"}; //2
-		int[] text2Indexes = {0,2,3,3,3};
+		int[] text2Indexes = {0,3,3,3,3};
 
 		string[] text3 = {"end of conversation"}; //3
 		int[] text3Indexes = {0}; //end of conversation
@@ -66,6 +75,12 @@ public class ConversationManager : MonoBehaviour
 				}
 			);
 		}
+
+		if(indexes[index].Length == 1)
+		{
+			closeImage.enabled = true;
+			closeText.enabled = true;
+		}
 	}
 
 	private void UnloadPanel()
@@ -75,5 +90,14 @@ public class ConversationManager : MonoBehaviour
 			Text[] textArr = fields[i].GetComponentsInChildren<Text>();
 			textArr[0].enabled = false;
 		}
+	}
+
+	public void CloseConversation()
+	{
+		closeImage.enabled = false;
+		closeText.enabled = false;
+		panelImage.enabled = false;
+		Text text = fields[0].GetComponent<Text>();
+		text.text = "";
 	}
 }
