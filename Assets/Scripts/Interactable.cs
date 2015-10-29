@@ -7,13 +7,7 @@ using System.Collections.Generic;
 
 public class Interactable : MonoBehaviour
 {
-    /*
-        public enum InteractType
-        {
-            Container, Door, Stair, Enterable
-        };
-        public InteractType type;
-        */
+   
     private PlayerMovement pm;
 
     private Texture2D _guiIcon;
@@ -21,7 +15,7 @@ public class Interactable : MonoBehaviour
     public Transform interactionPos;
     private Vector3 zlanePos;
     
-
+	private bool xTargetReached = false;
 
     public void SetIcon(Texture2D icon)
     {
@@ -37,16 +31,7 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-        //if (Mathf.Abs(interactionPos.transform.position.x) - Mathf.Abs(pm.transform.position.x) < 12.5F)
-     /*   if (interactionPos.transform.position.x - pm.transform.position.x < 12.5F)
-        {
-                pm.SetTarget(interactionPos.transform.position);
-                
-                // if we have reached the x position update the target
-            }
-       */ 
     }
     
 
@@ -75,7 +60,11 @@ public class Interactable : MonoBehaviour
     /// </summary>
     public virtual void Interact()
     {
-        // make sure that we have the PlayerMovement script of the player initialized. 
+        
+		Debug.Log ("interact method called");
+
+
+		// make sure that we have the PlayerMovement script of the player initialized. 
         if (pm == null)
         {
             pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
@@ -84,39 +73,34 @@ public class Interactable : MonoBehaviour
         // test 
         MoveToInteraction(interactionPos.transform.position);
 
-        /*
-        // move to x position of interaction
-        pm.SetTarget(new Vector3(interactionPos.transform.position.x, pm.transform.position.y, pm.transform.position.z));
-
-        // if the player is at the x position, make him move to the interactionPos on the z axis. 
-        
-        if(Vector3.Distance(pm.transform.position, transform.position) > 1.0F)
-        {
-            // do actual interaction
-        }
-
-        
-
-        // start the actual interaction (overrideable)     
-
-
-    */
-
+       
     }
 
     IEnumerator MoveToPos(Vector3 pos)
-    {
-        Vector3 tmpTarget = new Vector3(pos.x, pm.transform.position.y, pm.transform.position.z);
-        while (Vector3.Distance(tmpTarget, pm.transform.position) > 0.05F)
+    {	
+		Vector3 targetPos = pos;
+		Debug.Log ("moveToPos called");
+        if (!xTargetReached) {
+			pos = new Vector3 (pos.x, pm.transform.position.y, pm.transform.position.z);
+		} else {
+			pos = targetPos;
+		}
+        while (Vector3.Distance(pos, pm.transform.position) > 0.5F)
         {
-            pm.SetTarget(tmpTarget);
+			Debug.Log ("moveToPos loop");
+            pm.SetTarget(pos);
             yield return null;
+			xTargetReached = true;
             //GameObject.FindWithTag("Player").GetComponent<Renderer>().material.color = Color.yellow;
         }
-        GameObject.FindWithTag("Player").GetComponent<Renderer>().material.color = Color.black;
-        //  StartCoroutine(MoveToInteractPos(pos));
+        
+		Debug.Log ("after loop MoveToPos");
+        StartCoroutine(MoveToPos(pos));
+		xTargetReached = false;
     }
 
+
+	/*
     IEnumerator MoveToInteractPos(Vector3 pos)
     {
         while (Vector3.Distance(pos, pm.transform.position) > 0.05F)
@@ -124,7 +108,8 @@ public class Interactable : MonoBehaviour
             pm.SetTarget(pos);
             yield return null;
         }
-    }
+		Debug.Log ("out of while loop");
+    }*/
 
 
     private void MoveToInteraction(Vector3 pos)
