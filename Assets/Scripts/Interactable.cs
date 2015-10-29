@@ -79,55 +79,44 @@ public class Interactable : MonoBehaviour
     IEnumerator MoveToPos(Vector3 pos)
     {	
 		Vector3 targetPos = pos;
-		Debug.Log ("moveToPos called");
-        if (!xTargetReached) {
-			pos = new Vector3 (pos.x, pm.transform.position.y, pm.transform.position.z);
-		} else {
-			pos = targetPos;
-		}
+
+
+    	pos = new Vector3 (pos.x, pm.transform.position.y, pm.transform.position.z);
+		Debug.Log ("MoveToX method called");
         while (Vector3.Distance(pos, pm.transform.position) > 0.5F)
         {
 			Debug.Log ("moveToPos loop");
             pm.SetTarget(pos);
             yield return null;
-			xTargetReached = true;
-            //GameObject.FindWithTag("Player").GetComponent<Renderer>().material.color = Color.yellow;
+
         }
-        
-		Debug.Log ("after loop MoveToPos");
-        StartCoroutine(MoveToPos(pos));
-		xTargetReached = false;
+		Debug.Log ("Done with first coroutine");
+		StartCoroutine (MoveToZ(targetPos));
+
+
+
     }
+	IEnumerator MoveToZ(Vector3 pos) {
 
-
-	/*
-    IEnumerator MoveToInteractPos(Vector3 pos)
-    {
-        while (Vector3.Distance(pos, pm.transform.position) > 0.05F)
-        {
-            pm.SetTarget(pos);
-            yield return null;
-        }
-		Debug.Log ("out of while loop");
-    }*/
-
+		Debug.Log ("MoveToZ method called");
+		while (Vector3.Distance(pos, pm.transform.position) > 0.1F)
+		{
+			Debug.Log ("MoveToZ loop");
+			Debug.Log ("pos: "+pos.ToString ());
+			Debug.Log ("pm: "+pm.transform.position.ToString ());
+			pm.SetTarget(pos);
+			yield return null;
+			
+		}
+		Debug.Log ("Done with second coroutine");
+	}
 
     private void MoveToInteraction(Vector3 pos)
     {
-        //Vector3 tmpTarget  = new Vector3(pos.x, 0, 0);
-        // move to x
-        //StartCoroutine(MoveToPos(tmpTarget));
+      
         StartCoroutine(MoveToPos(pos));
-        //GameObject.FindWithTag("Player").GetComponent<Renderer>().material.color = Color.green;
-        // store pos when done. 
-        Vector3 tmpPosition = pm.transform.position;
+      
 
-        // move to z
-    //    StartCoroutine(MoveToPos(pos));
 
-        // wait for interation to be done
-
-        // move back to org z
-        //  pm.SetTarget(tmpPosition);
     }
 }

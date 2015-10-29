@@ -37,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+		/*
+		if (Vector3.Distance (transform.position, target) < 0.1F) {
+			return;
+		}
+
         Vector3 a = new Vector3(transform.position.x, 0, 0);
         Vector3 b = new Vector3(target.x, 0, 0);
 
@@ -46,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         } else
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        }
+        }*/
+		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 }
