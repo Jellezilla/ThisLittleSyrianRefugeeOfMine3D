@@ -6,12 +6,17 @@ using System.Collections;
 /// </summary>
 public class Conversation : Interactable {
    
-
+	private string conversationId;
 	// Use this for initialization
 	void Start () {
         SetIcon((Texture2D)Resources.Load("Textures/conversation_icon"));
-    }
+    	
+	}
 	    
+	public override void Interact ()
+	{
+		base.Interact ();
+	}
 	// Update is called once per frame
 	void Update () {
 	

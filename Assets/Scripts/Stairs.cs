@@ -21,9 +21,11 @@ public class Stairs : Interactable {
 	void Update () {
 		if (pm != null) {
 			if (Vector3.Distance (pm.transform.position, stairEndPos.transform.position) < 1.5) {
-				base.StartCoroutine (MoveToZ (new Vector3 (pm.transform.position.x, pm.transform.position.y, 0)));
-				ReverseInteractionPositions ();
-				base.StopAllCoroutines();
+
+					base.StartCoroutine (MoveToZ (new Vector3 (pm.transform.position.x, pm.transform.position.y, 0)));
+					ReverseInteractionPositions ();
+					base.StopAllCoroutines();	
+					
 			}
 		}
 	}
@@ -40,8 +42,10 @@ public class Stairs : Interactable {
 	}
 
 	
-	// reverse stair points 
-	
+
+	/// <summary>
+	/// Reverses the interaction positions.
+	/// </summary>
 	private void ReverseInteractionPositions ( ) {
 		// maybe set gui icon to the position of the interaction position. 
 		Transform tmp = stairStartPos;

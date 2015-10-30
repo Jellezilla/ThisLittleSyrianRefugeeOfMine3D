@@ -14,8 +14,6 @@ public class Interactable : MonoBehaviour
 	
 	public Transform interactionPos;
 	
-
-
 	public void SetIcon(Texture2D icon)
 	{
 		_guiIcon = icon;
@@ -46,36 +44,23 @@ public class Interactable : MonoBehaviour
 		
 		if (GUI.Button(r, "", new GUIStyle()))
 		{
-			
 			MoveToInteraction (interactionPos.transform.position);
-			
 		}
-		
 	}
 	
-	
-	
+
 	/// <summary>
 	/// This method is the main method in the interactable script. It can be overwritten by the individual interactable objects. 
 	/// It first moves to the interactable object on the x axis, then moves in on the z axis, performs the interaction and afterwards returns to the original z position. 
 	/// </summary>
 	public virtual void Interact()
 	{
-		
 		Debug.Log ("interact method called");
-		
-		
-		
-		// test 
-		//MoveToInteraction(interactionPos.transform.position);
-
-		
 	}
 	
 	IEnumerator MoveToX(Vector3 pos)
 	{	
 		Vector3 targetPos = pos;
-		
 		
 		pos = new Vector3 (pos.x, pm.transform.position.y, pm.transform.position.z);
 		Debug.Log ("MoveToX method called");
@@ -87,9 +72,8 @@ public class Interactable : MonoBehaviour
 		Debug.Log ("Done with first coroutine");
 		StartCoroutine (MoveToZ(targetPos));
 		
-		
-		
 	}
+
 	public IEnumerator MoveToZ(Vector3 pos) {
 		
 		Debug.Log ("MoveToZ method called");
@@ -112,8 +96,6 @@ public class Interactable : MonoBehaviour
 		{
 			yield return null;
 		}
-
-
 	}
 	
 	private void MoveToInteraction(Vector3 pos)
@@ -125,9 +107,5 @@ public class Interactable : MonoBehaviour
 		}
 		
 		StartCoroutine(MoveToX(pos));
-		
-		
-		
 	}
-	
 }
