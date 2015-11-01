@@ -26,35 +26,10 @@ public class ConversationManager : MonoBehaviour
 
 		conversationPanel = GameObject.Find ("ConversationPanel");
 		panelImage = conversationPanel.GetComponent<Image>();
-
-		string[] schema = {"text to react to", "Answer1", "Answer2", "Answer3"}; //index, comment
-		int[] schemaIndexes = {0,0,0,0}; //start with 0, then link to conversation array
-
-		string[] text1 = {"Test", "answerA", "AnswerB"}; //1
-		int[] text1Indexes = {0,2,3};
-
-		string[] text2 = {"aaa", "bbb", "ccc", "ddd", "eee"}; //2
-		int[] text2Indexes = {0,3,3,3,3};
-
-		string[] text3 = {"end of conversation"}; //3
-		int[] text3Indexes = {0}; //end of conversation
-
-		//add conversations strings
-		conversations.Add (schema);
-		conversations.Add (text1);
-		conversations.Add (text2);
-		conversations.Add (text3);
-
-		//add conversation indexes
-		indexes.Add (schemaIndexes);
-		indexes.Add (text1Indexes);
-		indexes.Add (text2Indexes);
-		indexes.Add (text3Indexes);
 	}
 
 	public void InputAnswer(int index)
 	{
-		panelImage.enabled = true;
 		UnloadPanel ();
 
 		Text text = fields[0].GetComponent<Text>();
@@ -92,6 +67,15 @@ public class ConversationManager : MonoBehaviour
 		}
 	}
 
+	public void StartConversation(int conversationID)
+	{
+		panelImage.enabled = true;
+
+		//set Lists
+		SetLists (conversationID);
+		InputAnswer (0);
+	}
+
 	public void CloseConversation()
 	{
 		closeImage.enabled = false;
@@ -99,5 +83,26 @@ public class ConversationManager : MonoBehaviour
 		panelImage.enabled = false;
 		Text text = fields[0].GetComponent<Text>();
 		text.text = "";
+	}
+
+	private void SetLists(int conversationID)
+	{
+		switch(conversationID)
+		{
+			case 1:
+			{
+				FatherSon fatherSon = gameObject.GetComponent<FatherSon>();
+				conversations = fatherSon.GetConversationList();
+				indexes = fatherSon.GetindexesList();
+				break;
+			}
+			case 2:
+			{
+				FatherWife fatherWife = gameObject.GetComponent<FatherWife>();
+				conversations = fatherWife.GetConversationList();
+				indexes = fatherWife.GetindexesList();
+				break;
+			}
+		}
 	}
 }

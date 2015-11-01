@@ -4,18 +4,24 @@ using System.Collections;
 /// This script is an extension of the interactable script. 
 /// This specific script is used to handle conversation with NPCs.
 /// </summary>
-public class Conversation : Interactable {
-   
-	private string conversationId;
+public class Conversation : Interactable 
+{
+	private GameObject conversationManagement;
+	private ConversationManager conversationManager;
+	public int conversationId;
+	
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
         SetIcon((Texture2D)Resources.Load("Textures/conversation_icon"));
     	
+		conversationManagement = GameObject.Find ("ConversationManagement");
+		conversationManager = conversationManagement.GetComponent<ConversationManager>();
 	}
 	    
 	public override void Interact ()
 	{
-		base.Interact ();
+		conversationManager.StartConversation (conversationId);
 	}
 	// Update is called once per frame
 	void Update () {
