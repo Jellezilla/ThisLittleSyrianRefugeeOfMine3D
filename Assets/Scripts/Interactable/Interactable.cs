@@ -18,17 +18,32 @@ public class Interactable : MonoBehaviour
 	{
 		_guiIcon = icon;
 	}
+
+	/*private enum state { cancled, active, queued };
+	Queue coroutineQueue = new Queue();
 	
+	
+	
+	void CallStoredRoutine(int index)
+	{
+		// coroutineQueue.Peek() inspect
+		// coroutineQueue.count() 
+		
+		StartCoroutine(coroutineQueue.Dequeue());
+	}*/
 	// Use this for initialization
 	void Start()
 	{
 		pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+		//coroutineQueue.Enqueue ("MoveToPos(new Vector3(transform.position.x, pm.transform.position.y, pm.transform.position.z));");
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		
+		//if (coroutineQueue.Count > 0) {
+		//	StartCoroutine(coroutineQueue.Dequeue());
+		//}
 	}
 	
 	
@@ -57,7 +72,7 @@ public class Interactable : MonoBehaviour
 	{
 		Debug.Log ("interact method called");
 	}
-	
+
 	IEnumerator MoveToX(Vector3 pos)
 	{	
 		Vector3 targetPos = pos;
@@ -86,7 +101,7 @@ public class Interactable : MonoBehaviour
 		Debug.Log ("Done with second coroutine");
 		Interact();
 	}
-	
+
 	public IEnumerator MoveToPos(Vector3 pos) {
 		
 		Debug.Log ("MoveToZ method called");
@@ -97,7 +112,7 @@ public class Interactable : MonoBehaviour
 			yield return null;
 		}
 	}
-	
+
 	private void MoveToInteraction(Vector3 pos)
 	{
 		// make sure that we have the PlayerMovement script of the player initialized. 
@@ -108,4 +123,8 @@ public class Interactable : MonoBehaviour
 		
 		StartCoroutine(MoveToX(pos));
 	}
+
+	//-------------
+
+
 }

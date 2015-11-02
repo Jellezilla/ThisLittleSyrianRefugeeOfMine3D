@@ -48,9 +48,12 @@ public class Stairs : Interactable {
 	/// </summary>
 	private void ReverseInteractionPositions ( ) {
 		// maybe set gui icon to the position of the interaction position. 
+		Debug.Log ("reverse interactions position called");
 		Transform tmp = stairStartPos;
 		stairStartPos = stairEndPos; 
-		stairEndPos = tmp; 
+		stairEndPos = tmp;
+
+		base.interactionPos = stairStartPos;
 		
 	}
 }
