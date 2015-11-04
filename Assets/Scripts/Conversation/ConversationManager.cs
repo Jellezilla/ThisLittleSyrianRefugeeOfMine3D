@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ConversationManager : MonoBehaviour 
 {
+	//!EventSystem.current.IsPointerOverGameObject()
+	private bool activeConversation = false;
 	private GameObject conversationPanel;
 	private Image panelImage;
 
@@ -15,6 +17,11 @@ public class ConversationManager : MonoBehaviour
 	public List<GameObject> fields = new List<GameObject>();
 	List<string[]> conversations = new List<string[]>();
 	List<int[]> indexes = new List<int[]>();
+	List<int> newIndexes = new List<int>();
+
+	TypeWriter typeWriter;
+	private int counter = 0;
+	private int index;
 
 	// Use this for initialization
 	void Start () 
@@ -26,30 +33,17 @@ public class ConversationManager : MonoBehaviour
 
 		conversationPanel = GameObject.Find ("ConversationPanel");
 		panelImage = conversationPanel.GetComponent<Image>();
+
+		typeWriter = gameObject.GetComponent<TypeWriter>();
 	}
 
 	public void InputAnswer(int index)
 	{
+		Debug.Log (index);
+		this.index = index;
+		counter = 0;
 		UnloadPanel ();
-
-		Text text = fields[0].GetComponent<Text>();
-		text.text = conversations [index] [0];
-
-		for(int i = 1; i < conversations[index].Length; i++)
-		{
-			Button button = fields[i].GetComponent<Button>();
-			Text[] answerArr = button.GetComponentsInChildren<Text>();
-			Text answer = answerArr[0];
-			answer.enabled = true;
-			answer.text = conversations [index] [i];
-			int newIndex = indexes[index][i];
-			button.onClick.AddListener(
-				delegate
-				{
-					InputAnswer(newIndex);
-				}
-			);
-		}
+		PrepareText();
 
 		if(indexes[index].Length == 1)
 		{
@@ -58,10 +52,47 @@ public class ConversationManager : MonoBehaviour
 		}
 	}
 
+	public void DoneTyping()
+	{
+		if (counter < conversations [index].Length) 
+		{
+			PrepareText ();
+		} 
+	}
+
+	private void PrepareText()
+	{
+		if (counter == 0) 
+		{
+			Text text = fields [counter].GetComponent<Text> ();
+			typeWriter.WriteText (conversations [index] [counter], text);
+			counter++;
+			return;
+		} 
+		else if(counter < fields.Count-1)
+		{
+			Button button = fields[counter].GetComponent<Button>();
+			Text[] answerArr = button.GetComponentsInChildren<Text>();
+			Text answer = answerArr[0];
+			answer.enabled = true;
+			typeWriter.WriteText(conversations[index][counter], answer);
+			int newIndex = indexes[index][counter];
+			button.onClick.AddListener(
+				delegate
+				{
+				InputAnswer(newIndex);
+			}
+			);
+			counter++;
+		}
+	}
+
 	private void UnloadPanel()
 	{
 		for (int i = 1; i < fields.Count; i++) 
 		{
+			Button button = fields[i].GetComponent<Button>();
+			button.onClick.RemoveAllListeners();
 			Text[] textArr = fields[i].GetComponentsInChildren<Text>();
 			textArr[0].enabled = false;
 		}
@@ -69,20 +100,25 @@ public class ConversationManager : MonoBehaviour
 
 	public void StartConversation(int conversationID)
 	{
-		panelImage.enabled = true;
+		if (!activeConversation) 
+		{
+			panelImage.enabled = true;
+			activeConversation = true;
 
-		//set Lists
-		SetLists (conversationID);
-		InputAnswer (0);
+			SetLists (conversationID);
+			InputAnswer (0);
+		}
 	}
 
 	public void CloseConversation()
 	{
+		activeConversation = false;
 		closeImage.enabled = false;
 		closeText.enabled = false;
 		panelImage.enabled = false;
 		Text text = fields[0].GetComponent<Text>();
 		text.text = "";
+		UnloadPanel ();
 	}
 
 	private void SetLists(int conversationID)

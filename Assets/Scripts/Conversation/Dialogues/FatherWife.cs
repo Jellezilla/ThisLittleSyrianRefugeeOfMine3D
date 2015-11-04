@@ -14,7 +14,7 @@ public class FatherWife : Dialogue
 		string[] text1 = {"Test", "answerA", "AnswerB"}; //1
 		int[] text1Indexes = {0,2,3};
 		
-		string[] text2 = {"aaa", "bbb", "ccc", "ddd", "eee"}; //2
+		string[] text2 = {"aaaaaaaaa", "bbb", "ccc", "ddd", "eee"}; //2
 		int[] text2Indexes = {0,3,3,3,3};
 		
 		string[] text3 = {"end of conversation"}; //3
