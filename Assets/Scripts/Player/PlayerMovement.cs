@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     {
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
+		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+		{
 			StopAllCoroutines();
 			target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, transform.position.y, 10.0f));
             target.z = transform.position.z;

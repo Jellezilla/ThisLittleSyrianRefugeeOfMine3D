@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ConversationManager : MonoBehaviour 
 {
-	//!EventSystem.current.IsPointerOverGameObject()
 	private bool activeConversation = false;
 	private GameObject conversationPanel;
 	private Image panelImage;
