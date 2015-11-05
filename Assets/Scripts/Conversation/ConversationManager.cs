@@ -74,7 +74,8 @@ public class ConversationManager : MonoBehaviour
 			Text[] answerArr = button.GetComponentsInChildren<Text>();
 			Text answer = answerArr[0];
 			answer.enabled = true;
-			typeWriter.WriteText(conversations[index][counter], answer);
+			string text = counter + " " + conversations[index][counter];
+			typeWriter.WriteText(text, answer);
 			int newIndex = indexes[index][counter];
 			button.onClick.AddListener(
 				delegate
