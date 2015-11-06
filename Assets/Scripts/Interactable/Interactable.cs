@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,41 +9,30 @@ public class Interactable : MonoBehaviour
 {
 	
 	public PlayerMovement pm;
-	
+	public ActionHandler ah;
 	private Texture2D _guiIcon;
 	
 	public Transform interactionPos;
-	
+
+
 	public void SetIcon(Texture2D icon)
 	{
 		_guiIcon = icon;
 	}
 
-	/*private enum state { cancled, active, queued };
-	Queue coroutineQueue = new Queue();
-	
-	
-	
-	void CallStoredRoutine(int index)
-	{
-		// coroutineQueue.Peek() inspect
-		// coroutineQueue.count() 
-		
-		StartCoroutine(coroutineQueue.Dequeue());
-	}*/
+
 	// Use this for initialization
 	void Start()
 	{
+		ah = GameObject.FindGameObjectWithTag("ActionHandler").GetComponent<ActionHandler> ();
 		pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-		//coroutineQueue.Enqueue ("MoveToPos(new Vector3(transform.position.x, pm.transform.position.y, pm.transform.position.z));");
+
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		//if (coroutineQueue.Count > 0) {
-		//	StartCoroutine(coroutineQueue.Dequeue());
-		//}
+
 	}
 	
 	
@@ -60,6 +49,7 @@ public class Interactable : MonoBehaviour
 		if (GUI.Button(r, "", new GUIStyle()))
 		{
 			MoveToInteraction (interactionPos.transform.position);
+			//ah.actionQueue.Enqueue (
 		}
 	}
 	
@@ -71,6 +61,7 @@ public class Interactable : MonoBehaviour
 	public virtual void Interact()
 	{
 		Debug.Log ("interact method called");
+		
 	}
 
 	IEnumerator MoveToX(Vector3 pos)
@@ -85,6 +76,7 @@ public class Interactable : MonoBehaviour
 			yield return null;
 		}
 		Debug.Log ("Done with first coroutine");
+
 		StartCoroutine (MoveToZ(targetPos));
 		
 	}
@@ -98,19 +90,22 @@ public class Interactable : MonoBehaviour
 		{
 			yield return null;
 		}
+
 		Debug.Log ("Done with second coroutine");
 		Interact();
+		yield return true;
 	}
 
 	public IEnumerator MoveToPos(Vector3 pos) {
 		
-		Debug.Log ("MoveToZ method called");
+		Debug.Log ("MoveToPos method called");
 		
-		pm.SetTarget(pos);
+		pm.SetTarget	(pos);
 		while (Vector3.Distance(pos, pm.transform.position) > 1.5F)
 		{
 			yield return null;
 		}
+		Debug.Log ("Done with moveToPos method");
 	}
 
 	private void MoveToInteraction(Vector3 pos)
@@ -120,11 +115,19 @@ public class Interactable : MonoBehaviour
 		{
 			pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 		}
-		
-		StartCoroutine(MoveToX(pos));
+		if (ah == null) {
+			Debug.Log ("I should be populating the ah var!");
+			ah = GameObject.FindGameObjectWithTag("ActionHandler").GetComponent<ActionHandler>();
+		}
+		//StartCoroutine(MoveToX(pos));
+		AddElementsToQueue ();
 	}
 
 	//-------------
+
+	public virtual void AddElementsToQueue() {
+		Debug.Log ("base AddElementsToQueue method called");
+	}
 
 
 }
