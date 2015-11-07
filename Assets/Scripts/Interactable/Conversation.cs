@@ -21,7 +21,7 @@ public class Conversation : Interactable
 	    
 	public override void Interact ()
 	{
-		conversationManager.StartConversation (conversationId);
+		conversationManager.StartConversation (this);
 	}
 	// Update is called once per frame
 	void Update () {

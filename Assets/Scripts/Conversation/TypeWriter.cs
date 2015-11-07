@@ -23,8 +23,6 @@ public class TypeWriter : MonoBehaviour
 		string writtenText = "";
 		field.text = writtenText;
 		int index = 0;
-		//field.text = text;
-		//manager.DoneTyping ();
 		StartCoroutine (WriteLetter (text, field, index, writtenText));
 	}
 
@@ -36,12 +34,10 @@ public class TypeWriter : MonoBehaviour
 		index++;
 		if (index < text.Length) 
 		{
-			//Debug.Log ("continue with index = " + index);
 			StartCoroutine (WriteLetter (text, field, index, writtenText));
 		}
 		if(index == text.Length-1) //done typing -> callback
 		{
-			Debug.Log("done with typing");
 			manager.DoneTyping();
 		}
 	}

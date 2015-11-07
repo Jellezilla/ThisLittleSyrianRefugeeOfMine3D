@@ -7,13 +7,24 @@ using System.Collections.Generic;
 
 public class Interactable : MonoBehaviour
 {
-	
+	public bool active = false; //default
+	public int activeState;
+
 	public PlayerMovement pm;
 	
 	private Texture2D _guiIcon;
 	
 	public Transform interactionPos;
+
+	private GameObject sceneChangeOver;
+	public Changeover changeover;
 	
+	void Awake()
+	{
+		sceneChangeOver = GameObject.Find ("SceneChangeover");
+		changeover = sceneChangeOver.GetComponent<Changeover>();
+	}
+
 	public void SetIcon(Texture2D icon)
 	{
 		_guiIcon = icon;
@@ -52,15 +63,19 @@ public class Interactable : MonoBehaviour
 	/// </summary>
 	void OnGUI()
 	{
-		Vector3 guiPos = Camera.main.WorldToScreenPoint(transform.position);
-		
-		Rect r = new Rect(guiPos.x, guiPos.y - _guiIcon.height / 2, 50, 50);
-		GUI.DrawTexture(r, _guiIcon);
-		
-		if (GUI.Button(r, "", new GUIStyle()))
+		if(active)
 		{
-			MoveToInteraction (interactionPos.transform.position);
+			Vector3 guiPos = Camera.main.WorldToScreenPoint(transform.position);
+			
+			Rect r = new Rect(guiPos.x, guiPos.y - _guiIcon.height / 2, 50, 50);
+			GUI.DrawTexture(r, _guiIcon);
+			
+			if (GUI.Button(r, "", new GUIStyle()))
+			{
+				MoveToInteraction (interactionPos.transform.position);
+			}
 		}
+
 	}
 	
 
