@@ -18,20 +18,20 @@ public class PlayerMovement : MonoBehaviour
     {
 		rigid = transform.GetComponent<Rigidbody> ();
         target = transform.position;
-       
     }
 
     void Update()
     {
-
-
-		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-		{
-			StopAllCoroutines();
-			target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, transform.position.y, 10.0f));
-            target.z = transform.position.z;
-          
-        }
+		if (Input.GetMouseButtonDown (0) && !EventSystem.current.IsPointerOverGameObject ()) {
+			if (Vector3.Distance (transform.position, new Vector3 (transform.position.x, transform.position.y, 0.0F)) < 0.1F) {
+				Debug.Log ("movement call allowed");
+				StopAllCoroutines ();
+				target = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, transform.position.y, 10.0f));
+				target.z = transform.position.z;
+			} else {
+				Debug.Log ("movement call not allowed");
+			}
+		} 
 
     }
     void FixedUpdate()

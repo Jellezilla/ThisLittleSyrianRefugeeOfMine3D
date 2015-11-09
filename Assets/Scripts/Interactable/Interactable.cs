@@ -9,14 +9,14 @@ public class Interactable : MonoBehaviour
 {
 	
 	public PlayerMovement pm;
-	public ActionHandler ah;
+
 	private Texture2D _guiIcon;
 	
 	public Transform interactionPos;
+	public bool isInteractionActive = false;
 
 
-	public void SetIcon(Texture2D icon)
-	{
+	public void SetIcon(Texture2D icon) {
 		_guiIcon = icon;
 	}
 
@@ -24,16 +24,15 @@ public class Interactable : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		ah = GameObject.FindGameObjectWithTag("ActionHandler").GetComponent<ActionHandler> ();
 		pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-
+	
 	}
+
 	
 	
 	/// <summary>
@@ -48,8 +47,7 @@ public class Interactable : MonoBehaviour
 		
 		if (GUI.Button(r, "", new GUIStyle()))
 		{
-			MoveToInteraction (interactionPos.transform.position);
-			//ah.actionQueue.Enqueue (
+			Interact ();
 		}
 	}
 	
@@ -60,74 +58,10 @@ public class Interactable : MonoBehaviour
 	/// </summary>
 	public virtual void Interact()
 	{
-		Debug.Log ("interact method called");
-		
-	}
-
-	IEnumerator MoveToX(Vector3 pos)
-	{	
-		Vector3 targetPos = pos;
-		
-		pos = new Vector3 (pos.x, pm.transform.position.y, pm.transform.position.z);
-		Debug.Log ("MoveToX method called");
-		pm.SetTarget(pos);
-		while (Vector3.Distance(pos, pm.transform.position) > 0.5F)
-		{
-			yield return null;
-		}
-		Debug.Log ("Done with first coroutine");
-
-		StartCoroutine (MoveToZ(targetPos));
-		
-	}
-
-	public IEnumerator MoveToZ(Vector3 pos) {
-		
-		Debug.Log ("MoveToZ method called");
-		
-		pm.SetTarget(pos);
-		while (Vector3.Distance(pos, pm.transform.position) > 1.5F)
-		{
-			yield return null;
-		}
-
-		Debug.Log ("Done with second coroutine");
-		Interact();
-		yield return true;
-	}
-
-	public IEnumerator MoveToPos(Vector3 pos) {
-		
-		Debug.Log ("MoveToPos method called");
-		
-		pm.SetTarget	(pos);
-		while (Vector3.Distance(pos, pm.transform.position) > 1.5F)
-		{
-			yield return null;
-		}
-		Debug.Log ("Done with moveToPos method");
-	}
-
-	private void MoveToInteraction(Vector3 pos)
-	{
-		// make sure that we have the PlayerMovement script of the player initialized. 
 		if (pm == null)
-		{
-			pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-		}
-		if (ah == null) {
-			Debug.Log ("I should be populating the ah var!");
-			ah = GameObject.FindGameObjectWithTag("ActionHandler").GetComponent<ActionHandler>();
-		}
-		//StartCoroutine(MoveToX(pos));
-		AddElementsToQueue ();
+			pm = GameObject.FindWithTag ("Player").GetComponent<PlayerMovement> ();
+
+		Debug.Log ("interact method called");
 	}
-
-	//-------------
-
-	public virtual void AddElementsToQueue() {
-		Debug.Log ("base AddElementsToQueue method called");
-	}
-
 
 }

@@ -11,27 +11,17 @@ public class Stairs : Interactable {
 	private Texture2D guiIcon;
 	Transform stairStartPos;
 	public Transform stairEndPos;
-	public delegate void QueueMethod();
 
-	Queue<QueueMethod> testQ;
 
-	//private PlayerMovement pm;
-	// Use this for initialization
 	void Start () {
 		SetIcon((Texture2D)Resources.Load("Textures/stairs_icon"));
 		stairStartPos = interactionPos;
-		//pm = GameObject.FindWithTag ("Player").GetComponent<PlayerMovement> ();
-//		ah = base.ah;
-		testQ = new Queue<QueueMethod>();
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.U)) {
-			Debug.Log (testQ.Peek().ToString());
-			QueueMethod callback = testQ.Dequeue();
-			callback();
-		}
+
 	}
 	
 	public override void Interact ()
@@ -40,31 +30,7 @@ public class Stairs : Interactable {
 		
 		Debug.Log ("stairs");
 
-	}
-
-	public override void AddElementsToQueue ()
-	{
-		Debug.Log ("add elements to queue @ stairs.cs");
-
-	//	base.ah.actionQueue.Enqueue (StartCoroutine (MoveToPos (stairStartPos.transform.position)));
-//		base.ah.actionQueue.Enqueue (StartCoroutine (base.MoveToPos (stairEndPos.transform.position)));
-//		base.ah.actionQueue.Enqueue (StartCoroutine (base.MoveToPos (new Vector3 (stairEndPos.transform.position.x, 0.0F, 0.0F))));
-		//ReverseInteractionPositions ();
-		testQ.Enqueue (TestMethod);
-		base.AddElementsToQueue ();
-
-
-	}
-
-	void TestMethod(){
-		StartCoroutine (TestCoroutine ());
-	}
-
-	IEnumerator TestCoroutine() {
-
-		Debug.Log ("testMethod called!");
-		yield return new WaitForSeconds (3);
-		Debug.Log ("test method post wait");
+		StartCoroutine (CoroutineCalls ());
 	}
 
 	/// <summary>
@@ -79,5 +45,26 @@ public class Stairs : Interactable {
 
 		base.interactionPos = stairStartPos;
 		
+	}
+
+	public IEnumerator CoroutineCalls()
+	{
+		Vector3 xPos = new Vector3 (stairStartPos.transform.position.x, pm.transform.position.y, 0.0F);  // find x position
+
+		yield return StartCoroutine(MoveToPos(xPos)); 													// move to x position
+		yield return StartCoroutine(MoveToPos(stairStartPos.transform.position));						// move to interaction position
+		yield return StartCoroutine(MoveToPos(stairEndPos.transform.position));							// move up the stairs *specific for this one*
+		//yield return StartCoroutine(FourthColorCoroutine()); interact									// while interaction *not used for the stairs*
+		yield return StartCoroutine (MoveToPos (new Vector3(stairEndPos.transform.position.x, pm.transform.position.y, 0.0F))); // move back to the x position *alternative position for the stairs*
+        ReverseInteractionPositions();		                 
+	}
+
+	public IEnumerator MoveToPos(Vector3 pos) 
+	{
+		pm.SetTarget	(pos);
+		while (Vector3.Distance(pos, pm.transform.position) > 1.25F)
+		{
+			yield return null;
+		}
 	}
 }

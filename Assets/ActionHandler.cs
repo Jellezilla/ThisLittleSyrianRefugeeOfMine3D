@@ -44,13 +44,7 @@ public class ActionHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.A)) {
-			Debug.Log ("a pressed!");
-			PerformNextAction();
-		}
-	if (Input.GetKeyDown (KeyCode.G)) {
-			actionQueue.Enqueue("maya venter på mig!");
-		}
+
 	}
 	private void PerformNextAction() {
 		if (actionQueue.Count > 0) {
