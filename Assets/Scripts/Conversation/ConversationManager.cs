@@ -127,7 +127,7 @@ public class ConversationManager : MonoBehaviour
 		Text text = fields[0].GetComponent<Text>();
 		text.text = "";
 		UnloadPanel ();
-		currentConversation.active = false;
+		currentConversation.activeMode = false;
 		changeover.CheckObjective (currentConversation.gameObject);
 	}
 

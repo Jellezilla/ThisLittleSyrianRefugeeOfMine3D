@@ -38,11 +38,11 @@ public class Changeover : MonoBehaviour
 		{
 			if(interactables[i].activeState == state)
 			{
-				interactables[i].active = true;
+				interactables[i].activeMode = true;
 			}
 			else
 			{
-				interactables[i].active = false;
+				interactables[i].activeMode = false;
 			}
 		}
 	}
