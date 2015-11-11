@@ -45,9 +45,11 @@ public class Interactable : MonoBehaviour
 	{
 		if(activeMode)
 		{
-			Vector3 guiPos = Camera.main.WorldToScreenPoint(transform.position);
+			Vector3 guiPos = Camera.main.WorldToScreenPoint(interactionPos.transform.position);//transform.position);
+			//Vector3 guiPos = Camera.main.WorldToViewportPoint(transform.position);
 			
-			Rect r = new Rect(guiPos.x, guiPos.y - _guiIcon.height / 2, 50, 50);
+			//Rect r = new Rect(guiPos.x, guiPos.y - _guiIcon.height / 2, 50, 50); //org
+			Rect r = new Rect(guiPos.x, -guiPos.y+Screen.height, 50, 50);
 			GUI.DrawTexture(r, _guiIcon);
 			
 			if (GUI.Button(r, "", new GUIStyle()))
