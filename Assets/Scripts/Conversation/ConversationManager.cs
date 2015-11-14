@@ -128,6 +128,7 @@ public class ConversationManager : MonoBehaviour
 		text.text = "";
 		UnloadPanel ();
 		currentConversation.activeMode = false;
+		currentConversation.isInteractionActive = false;
 		changeover.CheckObjective (currentConversation.gameObject);
 	}
 
