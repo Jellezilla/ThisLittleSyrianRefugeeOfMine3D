@@ -759,7 +759,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169681581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .119999997, y: 1.21000004, z: 0}
+  m_LocalPosition: {x: .119999997, y: 5.65999985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 597584848}
@@ -4646,6 +4646,7 @@ MonoBehaviour:
   pm: {fileID: 0}
   interactionPos: {fileID: 52042687}
   isInteractionActive: 0
+  inspectObject: {fileID: 0}
 --- !u!4 &1335801269 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: a2f3adf04202c154280ad359cb353196, type: 3}
@@ -7074,6 +7075,7 @@ MonoBehaviour:
   pm: {fileID: 0}
   interactionPos: {fileID: 595883850}
   isInteractionActive: 0
+  inspectObject: {fileID: 435630, guid: 2e2cfa1b89fdae74784c7596986daa97, type: 2}
 --- !u!1 &2031226196
 GameObject:
   m_ObjectHideFlags: 0

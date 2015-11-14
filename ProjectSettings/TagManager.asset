@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ActionHandler
+  - Inspect
   layers:
   - Default
   - TransparentFX

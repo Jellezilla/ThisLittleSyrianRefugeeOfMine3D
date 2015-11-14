@@ -40,14 +40,26 @@ public class Interactable : MonoBehaviour
 	/// </summary>
 	void OnGUI()
 	{
+		/*
+		var guiPosition = Camera.main.WorldToScreenPoint(transform.position);
+		guiPosition.y = Screen.height - guiPosition.y;
+		var rect = Rect(guiPosition.x - tex.width/2, guiPosition.y - tex.height/2.0, tex.width, tex.height);
+		GUI.DrawTexture(rect, tex);
+		*/
 		Vector3 guiPos = Camera.main.WorldToScreenPoint (interactionPos.transform.position); // transform.position);
 		
-		Rect r = new Rect(guiPos.x, guiPos.y, 50, 50);
+		Rect r = new Rect(guiPos.x, Screen.height-guiPos.y, 50, 50);
 		GUI.DrawTexture(r, _guiIcon);
 		
 		if (GUI.Button(r, "", new GUIStyle()))
 		{
 			Interact ();
+		}
+
+		if (isInteractionActive) {
+			if(GUI.Button(new Rect(Screen.width-300, Screen.height-200, 150, 50), "Close Interaction")) {
+				isInteractionActive = false;
+			}
 		}
 	}
 	
