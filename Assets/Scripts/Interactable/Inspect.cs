@@ -57,10 +57,10 @@ public class Inspect : Interactable {
 		GameObject tmp = Instantiate (inspectObject, new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y - 1, -4.3F), Quaternion.identity) as GameObject;
 		while (isInteractionActive) {
 
-			Debug.Log ("Interaction is active!");
+		
 			yield return null;
 		}
-		Debug.Log ("destroy inspect please!");
+
 		// destroy instantiated object
 		Destroy (GameObject.FindWithTag ("Inspect"));
 	}
