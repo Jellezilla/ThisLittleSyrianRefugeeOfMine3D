@@ -15,9 +15,6 @@ public class Interactable : MonoBehaviour
 	public Transform interactionPos;
 	public bool isInteractionActive = false;
 
-	//ChangeOver state
-	public int activeState;
-	public bool activeMode = false;
 
 	public void SetIcon(Texture2D icon) {
 		_guiIcon = icon;
@@ -43,17 +40,14 @@ public class Interactable : MonoBehaviour
 	/// </summary>
 	void OnGUI()
 	{
-		if(activeMode)
+		Vector3 guiPos = Camera.main.WorldToScreenPoint(transform.position);
+		
+		Rect r = new Rect(guiPos.x, guiPos.y - _guiIcon.height / 2, 50, 50);
+		GUI.DrawTexture(r, _guiIcon);
+		
+		if (GUI.Button(r, "", new GUIStyle()))
 		{
-			Vector3 guiPos = Camera.main.WorldToScreenPoint(transform.position);
-			
-			Rect r = new Rect(guiPos.x, guiPos.y - _guiIcon.height / 2, 50, 50);
-			GUI.DrawTexture(r, _guiIcon);
-			
-			if (GUI.Button(r, "", new GUIStyle()))
-			{
-				Interact ();
-			}
+			Interact ();
 		}
 	}
 	

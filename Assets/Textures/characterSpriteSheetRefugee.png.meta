@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 653aee0022bd1f848adc79e6a191d6fc
+timeCreated: 1446205964
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: characterSpriteSheetRefugee_0
+    21300002: characterSpriteSheetRefugee_1
+    21300004: characterSpriteSheetRefugee_2
+    21300006: characterSpriteSheetRefugee_3
+    21300008: characterSpriteSheetRefugee_4
+    21300010: characterSpriteSheetRefugee_5
+    21300012: characterSpriteSheetRefugee_6
+    21300014: characterSpriteSheetRefugee_7
+    21300016: characterSpriteSheetRefugee_8
+    21300018: characterSpriteSheetRefugee_9
+    21300020: characterSpriteSheetRefugee_10
+    21300022: characterSpriteSheetRefugee_11
+    21300024: characterSpriteSheetRefugee_12
+    21300026: characterSpriteSheetRefugee_13
+    21300028: characterSpriteSheetRefugee_14
+    21300030: characterSpriteSheetRefugee_15
+    21300032: characterSpriteSheetRefugee_16
+    21300034: characterSpriteSheetRefugee_17
+    21300036: characterSpriteSheetRefugee_18
+    21300038: characterSpriteSheetRefugee_19
+    21300040: characterSpriteSheetRefugee_20
+    21300042: characterSpriteSheetRefugee_21
+    21300044: characterSpriteSheetRefugee_22
+    21300046: characterSpriteSheetRefugee_23
+    21300048: characterSpriteSheetRefugee_24
+    21300050: characterSpriteSheetRefugee_25
+    21300052: characterSpriteSheetRefugee_26
+    21300054: characterSpriteSheetRefugee_27
+    21300056: characterSpriteSheetRefugee_28
+    21300058: characterSpriteSheetRefugee_29
+    21300060: characterSpriteSheetRefugee_30
+    21300062: characterSpriteSheetRefugee_31
+    21300064: characterSpriteSheetRefugee_32
+    21300066: characterSpriteSheetRefugee_33
+    21300068: characterSpriteSheetRefugee_34
+    21300070: characterSpriteSheetRefugee_35
+    21300072: characterSpriteSheetRefugee_36
+    21300074: characterSpriteSheetRefugee_37
+    21300076: characterSpriteSheetRefugee_38
+    21300078: characterSpriteSheetRefugee_39
+    21300080: characterSpriteSheetRefugee_40
+    21300082: characterSpriteSheetRefugee_41
+    21300084: characterSpriteSheetRefugee_42
+    21300086: characterSpriteSheetRefugee_43
+    21300088: characterSpriteSheetRefugee_44
+    21300090: characterSpriteSheetRefugee_45
+    21300092: characterSpriteSheetRefugee_46
+    21300094: characterSpriteSheetRefugee_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: characterSpriteSheetRefugee_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2258
+        width: 218
+        height: 793
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 2248
+        width: 362
+        height: 797
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_2
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 2258
+        width: 446
+        height: 783
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_3
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 2268
+        width: 483
+        height: 773
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_4
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 2271
+        width: 547
+        height: 774
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_5
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 2261
+        width: 466
+        height: 780
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_6
+      rect:
+        serializedVersion: 2
+        x: 2829
+        y: 2258
+        width: 325
+        height: 787
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_7
+      rect:
+        serializedVersion: 2
+        x: 3275
+        y: 2264
+        width: 304
+        height: 784
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_8
+      rect:
+        serializedVersion: 2
+        x: 3681
+        y: 2258
+        width: 297
+        height: 795
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_9
+      rect:
+        serializedVersion: 2
+        x: 4059
+        y: 2261
+        width: 382
+        height: 792
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_10
+      rect:
+        serializedVersion: 2
+        x: 4505
+        y: 2264
+        width: 503
+        height: 774
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_11
+      rect:
+        serializedVersion: 2
+        x: 5069
+        y: 2278
+        width: 551
+        height: 773
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_12
+      rect:
+        serializedVersion: 2
+        x: 5674
+        y: 2268
+        width: 497
+        height: 783
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_13
+      rect:
+        serializedVersion: 2
+        x: 6174
+        y: 2264
+        width: 328
+        height: 789
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_14
+      rect:
+        serializedVersion: 2
+        x: 6566
+        y: 2265
+        width: 304
+        height: 786
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1180
+        width: 304
+        height: 787
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_16
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 1180
+        width: 324
+        height: 787
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_17
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1184
+        width: 490
+        height: 780
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_18
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 1190
+        width: 548
+        height: 774
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_19
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1180
+        width: 497
+        height: 774
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_20
+      rect:
+        serializedVersion: 2
+        x: 2478
+        y: 1177
+        width: 382
+        height: 794
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_21
+      rect:
+        serializedVersion: 2
+        x: 2948
+        y: 1170
+        width: 290
+        height: 801
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_22
+      rect:
+        serializedVersion: 2
+        x: 3340
+        y: 1177
+        width: 304
+        height: 787
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_23
+      rect:
+        serializedVersion: 2
+        x: 3765
+        y: 1170
+        width: 325
+        height: 787
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_24
+      rect:
+        serializedVersion: 2
+        x: 4161
+        y: 1174
+        width: 466
+        height: 780
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_25
+      rect:
+        serializedVersion: 2
+        x: 4654
+        y: 1184
+        width: 547
+        height: 773
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_26
+      rect:
+        serializedVersion: 2
+        x: 5242
+        y: 1180
+        width: 483
+        height: 774
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_27
+      rect:
+        serializedVersion: 2
+        x: 5752
+        y: 1174
+        width: 446
+        height: 783
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_28
+      rect:
+        serializedVersion: 2
+        x: 6256
+        y: 1163
+        width: 361
+        height: 797
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_29
+      rect:
+        serializedVersion: 2
+        x: 6704
+        y: 1170
+        width: 215
+        height: 794
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_30
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 25
+        width: 165
+        height: 818
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_31
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 25
+        width: 165
+        height: 818
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_32
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 25
+        width: 176
+        height: 818
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_33
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 22
+        width: 162
+        height: 821
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_34
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 19
+        width: 159
+        height: 820
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_35
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 22
+        width: 178
+        height: 817
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_36
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 22
+        width: 166
+        height: 817
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_37
+      rect:
+        serializedVersion: 2
+        x: 2133
+        y: 25
+        width: 166
+        height: 814
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_38
+      rect:
+        serializedVersion: 2
+        x: 2644
+        y: 22
+        width: 344
+        height: 851
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_39
+      rect:
+        serializedVersion: 2
+        x: 3059
+        y: 22
+        width: 301
+        height: 851
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_40
+      rect:
+        serializedVersion: 2
+        x: 3438
+        y: 22
+        width: 304
+        height: 848
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_41
+      rect:
+        serializedVersion: 2
+        x: 3836
+        y: 19
+        width: 318
+        height: 847
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_42
+      rect:
+        serializedVersion: 2
+        x: 4201
+        y: 12
+        width: 301
+        height: 851
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_43
+      rect:
+        serializedVersion: 2
+        x: 4843
+        y: 8
+        width: 345
+        height: 851
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_44
+      rect:
+        serializedVersion: 2
+        x: 5259
+        y: 8
+        width: 300
+        height: 851
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_45
+      rect:
+        serializedVersion: 2
+        x: 5634
+        y: 8
+        width: 304
+        height: 848
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_46
+      rect:
+        serializedVersion: 2
+        x: 6036
+        y: 5
+        width: 317
+        height: 848
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: characterSpriteSheetRefugee_47
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 298
+        height: 849
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
