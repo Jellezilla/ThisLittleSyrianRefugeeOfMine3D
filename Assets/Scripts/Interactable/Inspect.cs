@@ -8,6 +8,7 @@ using System.Collections;
 public class Inspect : Interactable {
 	
 	private Texture2D guiIcon; 
+	public Transform inspectObject;
 	// Use this for initialization
 	void Start () {
 		SetIcon((Texture2D)Resources.Load("Textures/inspect_icon"));
@@ -40,26 +41,30 @@ public class Inspect : Interactable {
 	}
 	
 	public IEnumerator MoveToPos(Vector3 pos) {
-		
-		Debug.Log ("MoveToPos method called");
-		
 		pm.SetTarget	(pos);
 		while (Vector3.Distance(pos, pm.transform.position) > 1.5F)
 		{
 			yield return null;
 		}
-		Debug.Log ("Done with moveToPos method");
 	}
 	
 	
 	private IEnumerator WaitForInteraction() 
 	{
 		isInteractionActive = true;
+
+		// instantiate inspect object
+		GameObject tmp = Instantiate (inspectObject, new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y - 1, -4.3F), Quaternion.identity) as GameObject;
 		while (isInteractionActive) {
+
 			Debug.Log ("Interaction is active!");
 			yield return null;
 		}
+		Debug.Log ("destroy inspect please!");
+		// destroy instantiated object
+		Destroy (GameObject.FindWithTag ("Inspect"));
 	}
+
 	
 
 	

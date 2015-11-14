@@ -56,12 +56,12 @@ public class Conversation : Interactable
 		}
 		Debug.Log ("Done with moveToPos method");
 	}
-
+	
 	
 	private IEnumerator WaitForInteraction() 
 	{
 		isInteractionActive = true;
-		conversationManager.StartConversation (this);
+		conversationManager.StartConversation (conversationId);
 		while (isInteractionActive) {
 			Debug.Log ("Interaction is active!");
 

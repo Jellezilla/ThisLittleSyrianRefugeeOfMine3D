@@ -22,11 +22,6 @@ public class ConversationManager : MonoBehaviour
 	private int counter = 0;
 	private int index;
 
-	private Conversation currentConversation;
-
-	private GameObject sceneChangeOver;
-	public Changeover changeover;
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -39,13 +34,11 @@ public class ConversationManager : MonoBehaviour
 		panelImage = conversationPanel.GetComponent<Image>();
 
 		typeWriter = gameObject.GetComponent<TypeWriter>();
-
-		sceneChangeOver = GameObject.Find ("SceneChangeover");
-		changeover = sceneChangeOver.GetComponent<Changeover>();
 	}
 
 	public void InputAnswer(int index)
 	{
+		Debug.Log (index);
 		this.index = index;
 		counter = 0;
 		UnloadPanel ();
@@ -105,15 +98,14 @@ public class ConversationManager : MonoBehaviour
 		}
 	}
 
-	public void StartConversation(Conversation conversation)
+	public void StartConversation(int conversationID)
 	{
 		if (!activeConversation) 
 		{
 			panelImage.enabled = true;
 			activeConversation = true;
-			currentConversation = conversation;
 
-			SetLists (conversation.conversationId);
+			SetLists (conversationID);
 			InputAnswer (0);
 		}
 	}
@@ -127,9 +119,12 @@ public class ConversationManager : MonoBehaviour
 		Text text = fields[0].GetComponent<Text>();
 		text.text = "";
 		UnloadPanel ();
+<<<<<<< HEAD
 		currentConversation.activeMode = false;
 		currentConversation.isInteractionActive = false;
 		changeover.CheckObjective (currentConversation.gameObject);
+=======
+>>>>>>> origin/master
 	}
 
 	private void SetLists(int conversationID)
