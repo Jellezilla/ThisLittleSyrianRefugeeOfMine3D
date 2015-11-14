@@ -34,7 +34,7 @@ public class Changeover : MonoBehaviour
 
 	public void UpdateInteractables()
 	{
-	/*	for(int i = 0; i<interactables.Count;i++)
+		for(int i = 0; i<interactables.Count;i++)
 		{
 			if(interactables[i].activeState == state)
 			{
@@ -44,6 +44,6 @@ public class Changeover : MonoBehaviour
 			{
 				interactables[i].activeMode = false;
 			}
-		}*/
+		}
 	}
 }

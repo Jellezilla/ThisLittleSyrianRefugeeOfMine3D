@@ -14,7 +14,8 @@ public class Interactable : MonoBehaviour
 	
 	public Transform interactionPos;
 	public bool isInteractionActive = false;
-
+	public bool activeMode = false;
+	public int activeState;
 
 	public void SetIcon(Texture2D icon) {
 		_guiIcon = icon;
@@ -46,19 +47,22 @@ public class Interactable : MonoBehaviour
 		var rect = Rect(guiPosition.x - tex.width/2, guiPosition.y - tex.height/2.0, tex.width, tex.height);
 		GUI.DrawTexture(rect, tex);
 		*/
-		Vector3 guiPos = Camera.main.WorldToScreenPoint (interactionPos.transform.position); // transform.position);
-		
-		Rect r = new Rect(guiPos.x, Screen.height-guiPos.y, 50, 50);
-		GUI.DrawTexture(r, _guiIcon);
-		
-		if (GUI.Button(r, "", new GUIStyle()))
+		if (activeMode) 
 		{
-			Interact ();
-		}
-
-		if (isInteractionActive) {
-			if(GUI.Button(new Rect(Screen.width-300, Screen.height-200, 150, 50), "Close Interaction")) {
-				isInteractionActive = false;
+			Vector3 guiPos = Camera.main.WorldToScreenPoint (interactionPos.transform.position); // transform.position);
+			
+			Rect r = new Rect(guiPos.x, Screen.height-guiPos.y, 50, 50);
+			GUI.DrawTexture(r, _guiIcon);
+			
+			if (GUI.Button(r, "", new GUIStyle()))
+			{
+				Interact ();
+			}
+			
+			if (isInteractionActive) {
+				if(GUI.Button(new Rect(Screen.width-300, Screen.height-200, 150, 50), "Close Interaction")) {
+					isInteractionActive = false;
+				}
 			}
 		}
 	}

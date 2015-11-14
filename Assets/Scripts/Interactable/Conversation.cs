@@ -9,7 +9,7 @@ public class Conversation : Interactable
 	private GameObject conversationManagement;
 	private ConversationManager conversationManager;
 	public int conversationId;
-	
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -61,7 +61,7 @@ public class Conversation : Interactable
 	private IEnumerator WaitForInteraction() 
 	{
 		isInteractionActive = true;
-		conversationManager.StartConversation (conversationId);
+		conversationManager.StartConversation (this);
 		while (isInteractionActive) {
 			Debug.Log ("Interaction is active!");
 
