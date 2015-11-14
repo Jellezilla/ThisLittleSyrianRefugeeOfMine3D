@@ -16,7 +16,7 @@ public class Stairs : Interactable {
 	void Start () {
 		SetIcon((Texture2D)Resources.Load("Textures/stairs_icon"));
 		stairStartPos = interactionPos;
-		ReverseInteractionPositions ();
+	
 	}
 	
 	// Update is called once per frame
