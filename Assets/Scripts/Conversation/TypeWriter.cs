@@ -30,7 +30,7 @@ public class TypeWriter : MonoBehaviour
 
 	IEnumerator WriteLetter(string text, Text field, int index, string writtenText)
 	{
-		yield return new WaitForSeconds(0.03f);
+		yield return new WaitForSeconds(0.003f);
 		writtenText += text[index];
 		field.text = writtenText;
 		index++;
