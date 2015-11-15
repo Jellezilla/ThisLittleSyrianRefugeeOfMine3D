@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Textures/characterSpriteSheetRefugee_.anim.meta
 guid: f013e61671a9bd944ae2a99cc9cda783
 timeCreated: 1446208558
+=======
+guid: 2c9927753e6694353b99ca150ab98aae
+timeCreated: 1447166133
+>>>>>>> Stashed changes:Assets/Textures/walk_right.anim.meta
 licenseType: Free
 NativeFormatImporter:
   userData: 
