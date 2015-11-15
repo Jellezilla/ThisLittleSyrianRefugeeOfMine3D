@@ -63,7 +63,7 @@ public class Conversation : Interactable
 		isInteractionActive = true;
 		conversationManager.StartConversation (this);
 		while (isInteractionActive) {
-			Debug.Log ("Interaction is active!");
+			//Debug.Log ("Interaction is active!");
 
 			yield return null;
 		}
